@@ -28,7 +28,6 @@ function paintToDo(newTodo) {
     button.style="margin-left: 10px;";
     button.innerText = "X";
     button.addEventListener("click", deleteToDo)
-    //������ + . �̸��� ����Ű
     li.appendChild(span);
     li.appendChild(button);
     toDoList.appendChild(li);
@@ -58,7 +57,6 @@ if (savedToDos !== null) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
     parsedToDos.forEach(paintToDo);
-    //parsedToDos�� �� ��Ҹ��� paintToDo�� �����Ѵ�
 }
 
 function sexyFilter() {
