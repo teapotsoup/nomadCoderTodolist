@@ -18,7 +18,7 @@ const quotes = [
         author: "Travis Scott",
 
     }, {
-        quote: "How many people you bless is how you measure success",
+        quote: "How many people you bless is how you measure success.",
         author: "Rick Ross",
 
     }, {
@@ -56,4 +56,4 @@ const author = document.querySelector("#quote span:last-child");
 
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 quote.innerText = todaysQuote.quote;
-author.innerText = todaysQuote.author;
+author.innerText = `| ${todaysQuote.author}`;
