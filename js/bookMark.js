@@ -17,12 +17,12 @@ function paintBookMark(newBookMark) {
     li.id = newBookMark.id;
     li.style = "margin-top: 10px;";
     const span = document.createElement("span");
-    const icon = document.createElement("div");
-    span.style = "font-size: 23px";
+    const icon = document.createElement("img");
+    span.style = "font-size: 23px; margin-left: 10px";
     const a = document.createElement("a");
     const button = document.createElement("button");
     button.className += "btn btn-outline-secondary btn-sm";
-    button.style = "display: inline;";
+    button.style = "display: inline; margin-left: 10px";
     button.innerText = "X";
     button.addEventListener("click", (event) => {
         const li = event.target.parentElement;
@@ -30,12 +30,13 @@ function paintBookMark(newBookMark) {
         bookMarks = bookMarks.filter(e => e.id !== parseInt(li.id));
         saveBookMarks();
     });
+    li.appendChild(icon);
     li.appendChild(span); // li태그안 span태그 넣기
     span.appendChild(a);  // span태그안 li태그 넣기
-    li.appendChild(icon);
+
     icon.id = "favicon";
     icon.onclick = `window.open(${newBookMark.text}, '_blank')`;
-    icon.style = `width: 23px; height: 23px; background-image: url('https://s2.googleusercontent.com/s2/favicons?domain_url=${newBookMark.text}'); background-repeat: no-repeat; background-size: cover ;`;
+    icon.style = `border-radius: 7px; width: 23px; height: 23px; background-image: url('https://s2.googleusercontent.com/s2/favicons?domain_url=${newBookMark.text}'); background-repeat: no-repeat; background-size: cover ;`;
     li.appendChild(button); // li태그안 span태그 넣기
     let Cut = newBookMark.text.split('.');
     a.innerText = Cut[1]; //스트링입니다
