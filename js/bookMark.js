@@ -33,16 +33,18 @@ function paintBookMark(newBookMark) {
     li.appendChild(icon);
     li.appendChild(span); // li태그안 span태그 넣기
     span.appendChild(a);  // span태그안 li태그 넣기
-
+    let Cut = "https://www." + newBookMark.text + ".com";
     icon.id = "favicon";
     icon.onclick = `window.open(${newBookMark.text}, '_blank')`;
-    icon.style = `border-radius: 7px; width: 23px; height: 23px; background-image: url('https://s2.googleusercontent.com/s2/favicons?domain_url=${newBookMark.text}'); background-repeat: no-repeat; background-size: cover ;`;
+    icon.style = `border-radius: 7px; width: 23px; height: 23px; background-image: url('https://s2.googleusercontent.com/s2/favicons?domain_url=${Cut}'); background-repeat: no-repeat; background-size: cover ;`;
     li.appendChild(button); // li태그안 span태그 넣기
-    let Cut = newBookMark.text.split('.');
-    a.innerText = Cut[1]; //스트링입니다
+
+
+    a.innerText = newBookMark.text; //스트링입니다
     a.style = "color: white;";
-    a.setAttribute('href', newBookMark.text);
+    a.setAttribute('href', Cut);
     a.setAttribute('target', "_blank");
+
     bookMarkList.appendChild(li);
 }
 
