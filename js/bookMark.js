@@ -33,16 +33,13 @@ function paintBookMark(newBookMark) {
     li.appendChild(icon);
     li.appendChild(span); // li태그안 span태그 넣기
     span.appendChild(a);  // span태그안 li태그 넣기
-    let Cut = "https://www." + newBookMark.text + ".com";
     icon.id = "favicon";
-    icon.onclick = `window.open(${newBookMark.text}, '_blank')`;
-    icon.style = `border-radius: 7px; width: 23px; height: 23px; background-image: url('https://s2.googleusercontent.com/s2/favicons?domain_url=${Cut}'); background-repeat: no-repeat; background-size: cover ;`;
+    icon.onclick = `window.open(${newBookMark.link}, '_blank')`;
+    icon.style = `border-radius: 7px; width: 23px; height: 23px; background-image: url('https://s2.googleusercontent.com/s2/favicons?domain_url=${newBookMark.link}'); background-repeat: no-repeat; background-size: cover ;`;
     li.appendChild(button); // li태그안 span태그 넣기
-
-
     a.innerText = newBookMark.text; //스트링입니다
     a.style = "color: white;";
-    a.setAttribute('href', Cut);
+    a.setAttribute('href', newBookMark.link);
     a.setAttribute('target', "_blank");
 
     bookMarkList.appendChild(li);
@@ -60,9 +57,11 @@ function bookMarkDelete(bookMarks) {
 function handlebookMarkSubmit(event) {
     event.preventDefault();
     const newBookMark = bookMarkInput.value;
+    const link = prompt("Write your bookmark link");
     bookMarkInput.value = "";
     const newBookMarkObj = {
         text: newBookMark,
+        link: link,
         id: Date.now()
     }
     bookMarks.push(newBookMarkObj);
